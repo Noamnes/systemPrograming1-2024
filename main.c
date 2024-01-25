@@ -1,8 +1,22 @@
 #include "NumClass.h"
 #include <stdio.h>
 #include "tests.h"
+void run();
+void testReverse(int lim, int jumpSize);
 
 int main(){   
+    run();
+    printf("\n");
+    return 0;
+}
+
+void testReverse(int lim, int jumpSize){
+    for(int n=1; n<=lim; n*=jumpSize){
+        printf("rev(%d)=%d ",n,reverse(n));
+    }
+}
+
+void run(){
     int start,end;
     scanf("%d %d",&start, &end);
     printf("The Armstrong numbers are:");
@@ -36,6 +50,4 @@ int main(){
         }
     }
     printf("\n");
-
-    return 0;
 }

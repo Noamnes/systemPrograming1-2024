@@ -33,14 +33,14 @@ libclassrec.so : $(DynamicObjectsRec)
 	gcc $(CFlags) -shared $^ -o $@
 
 # Last compilation process
-mains : libclassrec.a main.o tests.o
-	gcc $(CFlags) main.o tests.o ./libclassrec.a -L. -o $@
+mains : libclassrec.a main.o 
+	gcc $(CFlags) main.o ./libclassrec.a -L. -o $@
 
-maindloop : libclassloops.so main.o tests.o
-	gcc $(CFlags) main.o tests.o -L. -Wl,-rpath=. -lclassloops -o $@
+maindloop : libclassloops.so main.o
+	gcc $(CFlags) main.o -L. -Wl,-rpath=. -lclassloops -o $@
 
-maindrec : libclassrec.so main.o tests.o
-	gcc $(CFlags) main.o tests.o -L. -Wl,-rpath=. -lclassrec -o $@
+maindrec : libclassrec.so main.o 
+	gcc $(CFlags) main.o -L. -Wl,-rpath=. -lclassrec -o $@
 
 clean :
 	rm *.o *.a *.so maindrec maindloop mains
