@@ -4,7 +4,6 @@ void run();
 
 int main(){   
     run();
-    printf("\n");
     return 0;
 }
 
