@@ -1,6 +1,6 @@
 #include "NumClass.h"
 #include <stdio.h>
-#include "tests.h"
+
 void run();
 void testReverse(int lim, int jumpSize);
 
