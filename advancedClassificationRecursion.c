@@ -14,14 +14,16 @@ int calcArmstrong(int num, int OriginalLength){
     return power(rightD,OriginalLength) + calcArmstrong(restOfNum,OriginalLength);
 }
 
-// passed testIsPalindrome(1000)!
+// passed testIsPalindrome(10000)!
 int isPalindrome(int num){
-    // if the number has one digit (or if it's zero, as used in the recursion)
+    return num == reverse(num);
+}
+// passed testReverse(10000,9)!
+int reverse(int num){
     if(numLength(num)==1){
-        return 1;
+        return num;
     }
     int rightD = num%10;
-    int leftD = num/power(10,numLength(num)-1);
-    int restOfNum = (num - rightD - leftD*power(10,numLength(num)-1))/10;
-    return (rightD == leftD) && isPalindrome(restOfNum);
+    int restOfNum = num/10;
+    return rightD*power(10,numLength(num)-1) + reverse(restOfNum);
 }
